@@ -1,7 +1,8 @@
 class Singleton {
 	private static instance:Singleton;
+	public value = 0;
 
-	private constructor(public value:number = 0){}
+	private constructor(){}
 
 	public static getInstance():Singleton {
 		Singleton.instance ??= new Singleton();
