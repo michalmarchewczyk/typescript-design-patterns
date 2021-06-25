@@ -4,7 +4,8 @@
   "description": "Design patterns in TypeScript",
   "main": "",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ./"
   },
   "author": "",
   "license": "ISC",
