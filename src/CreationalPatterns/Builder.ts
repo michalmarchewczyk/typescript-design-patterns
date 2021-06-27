@@ -7,6 +7,7 @@ class Product {
 interface Builder {
 	buildPartA():void;
 	buildPartB(value:number):void;
+	buildPartC():void;
 	getProduct():Product;
 }
 
@@ -27,6 +28,10 @@ class ConcreteBuilder implements Builder {
 
 	public buildPartB(value: number):void {
 		this.product.number = value;
+	}
+
+	public buildPartC():void {
+		this.product.parts.push('partC');
 	}
 
 	getProduct():Product {

@@ -25,4 +25,23 @@ describe('Builder', () => {
 		expect(product.parts).toEqual(['partA']);
 		expect(product.number).toBe(5);
 	});
+
+	it('should create different products', () => {
+		const builder = new ConcreteBuilder();
+		builder.buildPartA();
+		builder.buildPartB(5);
+		const product1:Product = builder.getProduct();
+		builder.reset();
+
+		builder.buildPartB(10);
+		builder.buildPartC();
+		builder.buildPartC();
+		const product2:Product = builder.getProduct();
+
+		expect(product1).not.toBe(product2);
+		expect(product1.parts).toEqual(['partA']);
+		expect(product1.number).toBe(5);
+		expect(product2.parts).toEqual(['partC', 'partC']);
+		expect(product2.number).toBe(10);
+	});
 });
