@@ -1,7 +1,6 @@
 class Product {
 	public parts:string[] = [];
-	constructor(public number:number = 0) {
-	}
+	public number = 0;
 }
 
 interface Builder {
