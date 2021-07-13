@@ -97,4 +97,18 @@ describe('Observer', () => {
 
 		expect(spy).toHaveBeenCalledTimes(3);
 	});
+
+	it('should notify observers on operation', () => {
+		const subject = new ConcreteSubject();
+		const observer1 = new ConcreteObserverA();
+		const observer2 = new ConcreteObserverB();
+		const spy1 = jest.spyOn(observer1, 'operation');
+		const spy2 = jest.spyOn(observer2, 'operation');
+		subject.attach(observer1);
+		subject.attach(observer2);
+		subject.operation();
+
+		expect(spy1).toHaveBeenCalledWith(subject.state);
+		expect(spy2).toHaveBeenCalledWith(subject.state.toString());
+	});
 });

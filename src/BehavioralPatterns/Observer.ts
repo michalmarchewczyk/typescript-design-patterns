@@ -33,6 +33,11 @@ class ConcreteSubject implements Subject {
 			observer.update(this);
 		});
 	}
+
+	public operation(): void {
+		this.state = Math.floor(Math.random() * 10);
+		this.notify();
+	}
 }
 
 interface Observer {
